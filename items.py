@@ -10,7 +10,7 @@ class Item():
     def __str__(self):
         return "{}\n=====\n{}Value: {}\n".format(self.name, self.description, self.value)
 
-class Gold(item):
+class Gold(Item):
     def __init__(self, amt):
         self.amt = amt
         super().__init__(name="Gold",
