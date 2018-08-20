@@ -1,10 +1,9 @@
+from player import Player
 
 def play():
-    #inventory definition
-    inventory = ['Dagger', 'Gold(5)', 'Crusty Bread']
-
     #game start
     print("Escape from Cave Terror!")
+    player = Player()
     while True:
         action_input = get_player_command()
         if action_input in ['n', 'N']:
@@ -16,9 +15,7 @@ def play():
         elif action_input in ['w', 'W']:
             print('Go West!')
         elif action_input in ['i', 'I']:
-            print("Inventory:")
-            for item in inventory:
-                print('*' + str(item))
+            player.print_inventory()
         else:
             print("invalid action!")
 

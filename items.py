@@ -19,23 +19,31 @@ class Gold(Item):
 
 #=====================================================================================================================
 
-class Weapon(Item):
-    def __init__(self, name, description, value, damage):
-        self.damage = damage
-        super().__init__(name, description, value)
+class Weapon():
+    def __init__(self):
+        raise NotImplementedError("Do not create raw Weapon objects.")
+        return self.name
 
     def __str__(self):
-        return "{}\n=====\n{}\nValue: {}\nDamage: {}".format(self.name, self.description, self.value, self.damage)
+        return self.name
 
 class Rock(Weapon):
     def __init__(self):
-        super().__init__(name="Rock",
-                        description="A fist-sized rock, suitable for bludgeoning.",
-                        value=0,
-                        damage=5)
-class Rock(Weapon):
+        self.name = "Rock"
+        self.description = "A fist-sized rock, suitable for bludgeoning."
+        self.value = 0
+        self.damage = 5
+
+class Dagger(Weapon):
     def __init__(self):
-        super().__init__(name="Dagger",
-                        description="A small dagger with some rust. Somewhat more valuable than a rock.",
-                        value=10,
-                        damage=10)
+        self.name = "Dagger"
+        self.description = "A small dagger with some rust. Somewhat more valuable than a rock."
+        self.value = 10
+        self.damage = 10
+
+class RustySword(Weapon):
+    def __init__(self):
+        self.name = "Rusty sword"
+        self.description = "This sword is showing its age, but still has some fight in it."
+        self.value = 12
+        self.damage = 15
