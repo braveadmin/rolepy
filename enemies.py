@@ -1,18 +1,29 @@
 #enemies definition
 
 class Enemy:
-    def __init__(self, name, hp, damage):
-        self.name = name
-        self.hp = hp
-        self.damage = damage
+    def __init__(self):
+        raise NotImplementedError("Do not create raw Enemy objects.")
+
+    def __str__(self):
+        return self.name
 
     def is_alive(self):
         return self.hp > 0
 
-class Slime(Enemy):
+class ReconDroid(Enemy):
     def __init__(self):
-        super().__init__(name="Slime", hp=10, damage=2)
+        self.name = "Recon Droid"
+        self.hp = 5
+        self.damage = 2
 
-class Skeleton(Enemy):
+class SpacePirate(Enemy):
     def __init__(self):
-        super().__init__(name="Skeleton", hp=15, damage=5)
+        self.name = "Space Pirate"
+        self.hp = 10
+        self.damage = 5
+
+class SentinelDroid(Enemy):
+    def __init__(self):
+        self.name = "sentinel Droid"
+        self.hp = 15
+        self.damage = 7
