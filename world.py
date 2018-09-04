@@ -22,7 +22,7 @@ class EnemyTile(MapTile):
             self.alive_text = "A Recon droid appears in front of you" \
                             "a little cannon appears below the crystal sphere supposed to be an eye!"
             self.dead_text = "An amount of metal junk that once was a recon droid." \
-                            "still emits a lighty buzz."
+                            " Still emits a lighty buzz."
         elif r < 0.80:
             self.enemy = enemies.SpacePirate()
             self.alive_text = "A space pirate  appears in front of you" \
