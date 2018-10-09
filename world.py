@@ -14,6 +14,13 @@ class MapTile:
     def modify_player(self, player):
         pass
 
+class StartTile(MapTile):
+    def intro_text(self):
+        return """
+        You find yourself in a cave with flickering torch on the wallself.
+        You can make out four paths, each equally as dark and foreboding.
+        """
+
 class EnemyTile(MapTile):
     def __init__(self, x, y):
         r = random.random()
@@ -38,10 +45,7 @@ class EnemyTile(MapTile):
         #super().__init__(x, y)
 
     def intro_text(self):
-        if self.enemy.is_alive():
-            text = self.alive_text
-        else:
-            text = self.dead_text
+        text = self.alive_text if self.enemy.is_alive() else self.dead_text
         return text
 
     def modify_player(self, player):
@@ -49,12 +53,6 @@ class EnemyTile(MapTile):
             player.hp -= self.enemy.damage
             print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, player.hp))
 
-class StartTile(MapTile):
-    def intro_text(self):
-        return """
-        You find yourself in a cave with flickering torch on the wallself.
-        You can make out four paths, each equally as dark and foreboding.
-        """
 
 class BoringTile(MapTile):
     def intro_text(self):
